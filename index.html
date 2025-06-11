@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Uma Pergunta Importante</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Press Start 2P', cursive;
+      background-color: #0d0d0d;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #d4bfff;
+    }
+
+    .caixa {
+      background-color: #1a1a1a;
+      padding: 40px;
+      border-radius: 16px;
+      border: 2px solid #d4bfff;
+      text-align: center;
+      position: relative;
+      width: 90%;
+      max-width: 600px;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .caixa h1 {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+    .caixa h2 {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      font-family: 'Press Start 2P', cursive;
+      padding: 15px 25px;
+      font-size: 12px;
+      margin: 10px;
+      border: 2px solid #d4bfff;
+      background-color: #0d0d0d;
+      color: #d4bfff;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #4b006e;
+    }
+
+    .sim {
+      margin-left: -20px;
+    }
+
+    #nao {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="caixa" id="caixa">
+    <h1>YASMIM!</h1>
+    <h2>Você aceita ser minha pra sempre? 🖤</h2>
+    <button id="sim" class="btn">Sim</button>
+    <button id="nao" class="btn">Não</button>
+  </div>
+
+  <script>
+    const nao = document.getElementById('nao');
+    const sim = document.getElementById('sim');
+    const caixa = document.getElementById('caixa');
+
+    nao.addEventListener('mouseover', () => {
+      const caixaRect = caixa.getBoundingClientRect();
+      const maxX = caixa.clientWidth - nao.offsetWidth;
+      const maxY = caixa.clientHeight - nao.offsetHeight;
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      nao.style.left = `${x}px`;
+      nao.style.top = `${y}px`;
+    });
+
+    sim.addEventListener('click', () => {
+      window.location.href = "resposta.html";
+    });
+  </script>
+
+</body>
+</html>
